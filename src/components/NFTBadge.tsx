@@ -12,6 +12,8 @@ interface NFTBadgeProps {
 }
 
 const NFT_CONTRACT = "0x4d22778d0EBfc692fbE6D08a3268421c9DfBAd09";
+const NFT_STANDARD = "ERC-721";
+const BLOCKCHAIN = "ZenChain Testnet";
 
 export const NFTBadge = ({ swapCount, isConnected }: NFTBadgeProps) => {
   const [isMinting, setIsMinting] = useState(false);
@@ -131,19 +133,26 @@ export const NFTBadge = ({ swapCount, isConnected }: NFTBadgeProps) => {
       {/* Contract Info */}
       <Card className="p-3 bg-muted/20 border-border/30">
         <div className="text-center space-y-2">
-          <p className="text-xs font-medium">NFT Contract</p>
-          <div className="flex items-center justify-center space-x-2">
-            <code className="text-xs bg-background/50 px-2 py-1 rounded font-mono">
-              {NFT_CONTRACT.slice(0, 6)}...{NFT_CONTRACT.slice(-4)}
-            </code>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={openEtherscan}
-              className="p-1 h-auto"
-            >
-              <ExternalLink className="w-3 h-3" />
-            </Button>
+          <p className="text-xs font-medium">NFT Contract Details</p>
+          <div className="space-y-2">
+            <div className="flex items-center justify-center space-x-2">
+              <code className="text-xs bg-background/50 px-2 py-1 rounded font-mono">
+                {NFT_CONTRACT.slice(0, 6)}...{NFT_CONTRACT.slice(-4)}
+              </code>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={openEtherscan}
+                className="p-1 h-auto"
+              >
+                <ExternalLink className="w-3 h-3" />
+              </Button>
+            </div>
+            <div className="flex justify-center space-x-4 text-xs text-muted-foreground">
+              <span>{NFT_STANDARD}</span>
+              <span>•</span>
+              <span>{BLOCKCHAIN}</span>
+            </div>
           </div>
         </div>
       </Card>
